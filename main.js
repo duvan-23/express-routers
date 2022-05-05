@@ -66,6 +66,7 @@ async function eliminarId(id,ruta){
                 r2=index;
             }
         });
+
         resultado.splice(r2,1);
     }
     catch(err){
@@ -92,7 +93,7 @@ async function leer(ruta,data){
         const contenido =await fs.promises.readFile(ruta, 'utf8');
         resultado =JSON.parse(contenido);
         r2=resultado;
-        resultado=resultado[resultado.length-1].id+1;
+        resultado=Number(resultado[resultado.length-1].id)+1;
     }
     catch(err){
         r2= [];
@@ -116,7 +117,7 @@ async function guardar(resultados,data, ruta){
     catch(err){
         resultado=err;
     }
-    return  " "+idd;
+    return  data;
 }
 
 async function leerAll(ruta){
