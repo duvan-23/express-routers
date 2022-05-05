@@ -39,7 +39,7 @@ productos.delete('/:id',async(req, res) => {
 productos.put('/:id', async (req, res) => {
     const { id } = req.params
     let datos = req.body;
-    datos.id=id;
+    datos.id=Number(id);
     res.send(await contenedor.putId(id,datos));
 })
 
